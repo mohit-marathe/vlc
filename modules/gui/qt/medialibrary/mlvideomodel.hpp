@@ -43,6 +43,7 @@ public:
         VIDEO_FILENAME,
         VIDEO_TITLE,
         VIDEO_THUMBNAIL,
+        VIDEO_IS_LOCAL,
         VIDEO_DURATION,
         VIDEO_PROGRESS,
         VIDEO_PLAYCOUNT,
@@ -59,9 +60,14 @@ public:
 
 public:
     explicit MLVideoModel(QObject* parent = nullptr);
+
     virtual ~MLVideoModel() = default;
 
     QHash<int, QByteArray> roleNames() const override;
+
+    Q_INVOKABLE QUrl getURL(const QModelIndex & index);
+
+    bool isLocal(QUrl video_url) const;
 
 public: // Interface
     // NOTE: These functions are useful when we want to apply a change before the database event.
@@ -69,8 +75,6 @@ public: // Interface
     Q_INVOKABLE void setItemPlayed(const QModelIndex & index, bool played);
 
     Q_INVOKABLE void setItemFavorite(const QModelIndex & index, bool played);
-
-    Q_INVOKABLE QUrl openParentDirectory(const QModelIndex & index);
 
 protected:
     QVariant itemRoleData(MLItem *item, int role) const override;

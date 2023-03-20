@@ -43,17 +43,20 @@ QVariant MLAlbumTrackModel::itemRoleData(MLItem *item, const int role) const
     // Tracks
     case TRACK_ID:
         return QVariant::fromValue( ml_track->getId() );
-    case TRACK_TITLE :
+    case TRACK_TITLE:
         return QVariant::fromValue( ml_track->getTitle() );
-    case TRACK_COVER :
+    case TRACK_COVER:
         return QVariant::fromValue( ml_track->getCover() );
-    case TRACK_NUMBER :
+    case TRACK_NUMBER:
         return QVariant::fromValue( ml_track->getTrackNumber() );
     case TRACK_DISC_NUMBER:
         return QVariant::fromValue( ml_track->getDiscNumber() );
     case TRACK_IS_LOCAL:
-        return QVariant::fromValue( isTrackLocal( getURL(?????)) );
-    case TRACK_DURATION :
+    {
+        QUrl trackUrl(ml_track->getMRL());
+        return QVariant::fromValue( isLocal(trackUrl) );
+    }
+    case TRACK_DURATION:
         return QVariant::fromValue( ml_track->getDuration() );
     case TRACK_ALBUM:
         return QVariant::fromValue( ml_track->getAlbumTitle() );
@@ -214,7 +217,7 @@ MLAlbumTrackModel::Loader::loadItemById(vlc_medialibrary_t* ml, MLItemId itemId)
     return parentDirUrl;
 }
 
-bool isTrackLocal(QUrl track_url) const {
-
+bool MLAlbumTrackModel::isLocal(QUrl track_url) const
+{
     return track_url.isLocalFile();
 }

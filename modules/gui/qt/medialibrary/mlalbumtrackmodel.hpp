@@ -56,6 +56,8 @@ public:
 
     Q_INVOKABLE QUrl getURL(const QModelIndex &index);
 
+    bool isLocal(QUrl track_url) const;
+
 protected:
     QVariant itemRoleData(MLItem *item, int role) const override;
 

@@ -119,6 +119,11 @@ QVariant MLVideoModel::itemRoleData(MLItem *item, int role) const
             }
             return QVariant::fromValue( thumbnail );
         }
+        case VIDEO_IS_LOCAL:
+        {
+            QUrl videoUrl(video->getMRL());
+            return QVariant::fromValue( isLocal(videoUrl) );
+        }
         case VIDEO_DURATION:
             return QVariant::fromValue( video->getDuration() );
         case VIDEO_PROGRESS:
@@ -154,6 +159,7 @@ QHash<int, QByteArray> MLVideoModel::roleNames() const
         { VIDEO_FILENAME, "fileName" },
         { VIDEO_TITLE, "title" },
         { VIDEO_THUMBNAIL, "thumbnail" },
+        { VIDEO_IS_LOCAL, "isLocal"},
         { VIDEO_DURATION, "duration" },
         { VIDEO_PROGRESS, "progress" },
         { VIDEO_PLAYCOUNT, "playcount" },
@@ -301,7 +307,7 @@ MLVideoModel::Loader::loadItemById(vlc_medialibrary_t* ml, MLItemId itemId) cons
     return std::make_unique<MLVideo>(media.get());
 }
 
-/* Q_INVOKABLE */ QUrl MLVideoModel::openParentDirectory(const QModelIndex &index)
+/* Q_INVOKABLE */ QUrl MLVideoModel::getURL(const QModelIndex &index)
 {
     // Get the mrl value for the video at the specified index
     MLVideo *video = static_cast<MLVideo *>(item(index.row()));
@@ -315,4 +321,9 @@ MLVideoModel::Loader::loadItemById(vlc_medialibrary_t* ml, MLItemId itemId) cons
     QUrl parentDirUrl = fileUrl.adjusted(QUrl::RemoveFilename);
 
     return parentDirUrl;
+}
+
+bool MLVideoModel::isLocal(QUrl video_url) const
+{
+    return video_url.isLocalFile();
 }

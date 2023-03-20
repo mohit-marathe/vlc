@@ -26,7 +26,6 @@
 #include <QObject>
 #include <QString>
 #include <memory>
-#include <QUrl>
 
 #include <vlc_media_library.h>
 #include "mlhelper.hpp"
