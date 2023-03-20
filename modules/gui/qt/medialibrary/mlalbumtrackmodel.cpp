@@ -51,6 +51,8 @@ QVariant MLAlbumTrackModel::itemRoleData(MLItem *item, const int role) const
         return QVariant::fromValue( ml_track->getTrackNumber() );
     case TRACK_DISC_NUMBER:
         return QVariant::fromValue( ml_track->getDiscNumber() );
+    case TRACK_IS_LOCAL:
+        return QVariant::fromValue( isTrackLocal( getURL(?????)) );
     case TRACK_DURATION :
         return QVariant::fromValue( ml_track->getDuration() );
     case TRACK_ALBUM:
@@ -76,6 +78,7 @@ QHash<int, QByteArray> MLAlbumTrackModel::roleNames() const
         { TRACK_COVER, "cover" },
         { TRACK_NUMBER, "track_number" },
         { TRACK_DISC_NUMBER, "disc_number" },
+        { TRACK_IS_LOCAL, "isLocal" },
         { TRACK_DURATION, "duration" },
         { TRACK_ALBUM, "album_title"},
         { TRACK_ARTIST, "main_artist"},
@@ -195,3 +198,23 @@ MLAlbumTrackModel::Loader::loadItemById(vlc_medialibrary_t* ml, MLItemId itemId)
     return std::make_unique<MLAlbumTrack>(ml, media.get());
 }
 
+/* Q_INVOKABLE */ QUrl MLAlbumTrackModel::getURL(const QModelIndex &index)
+{
+    // Get the mrl value for the video at the specified index
+    MLAlbumTrack *ml_track = static_cast<MLAlbumTrack *>(item(index.row()));
+
+    QString mrl = ml_track->getMRL();
+
+    // Convert the mrl to a URL
+    QUrl fileUrl(mrl);
+
+    // Get the URL for the parent directory
+    QUrl parentDirUrl = fileUrl.adjusted(QUrl::RemoveFilename);
+
+    return parentDirUrl;
+}
+
+bool isTrackLocal(QUrl track_url) const {
+
+    return track_url.isLocalFile();
+}

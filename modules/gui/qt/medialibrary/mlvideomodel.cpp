@@ -301,3 +301,18 @@ MLVideoModel::Loader::loadItemById(vlc_medialibrary_t* ml, MLItemId itemId) cons
     return std::make_unique<MLVideo>(media.get());
 }
 
+/* Q_INVOKABLE */ QUrl MLVideoModel::openParentDirectory(const QModelIndex &index)
+{
+    // Get the mrl value for the video at the specified index
+    MLVideo *video = static_cast<MLVideo *>(item(index.row()));
+
+    QString mrl = video->getMRL();
+
+    // Convert the mrl to a URL
+    QUrl fileUrl(mrl);
+
+    // Get the URL for the parent directory
+    QUrl parentDirUrl = fileUrl.adjusted(QUrl::RemoveFilename);
+
+    return parentDirUrl;
+}

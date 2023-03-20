@@ -70,6 +70,10 @@ NativeMenu {
             "action": markUnseen,
             "visible": _showUnseen
         }, {
+            "text": I18n.qtr("Open Containing Folder"),
+            "action": openContainingFolder,
+            "visible": true
+        }, {
             "text": I18n.qtr("Information"),
             "action": _signalShowInformation,
             "visible": showInformationAvailable
@@ -115,6 +119,11 @@ NativeMenu {
 
     function markUnseen(dataList, options, indexes) {
         model.setItemPlayed(indexes[0], false)
+    }
+
+    function openContainingFolder(dataList, options, indexes) {
+        let parentDir = model.openParentDirectory(indexes[0]);
+        Qt.openUrlExternally(parentDir)
     }
 
     function showInformationAvailable(options, indexes) {

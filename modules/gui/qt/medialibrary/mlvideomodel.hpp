@@ -70,6 +70,8 @@ public: // Interface
 
     Q_INVOKABLE void setItemFavorite(const QModelIndex & index, bool played);
 
+    Q_INVOKABLE QUrl openParentDirectory(const QModelIndex & index);
+
 protected:
     QVariant itemRoleData(MLItem *item, int role) const override;
 
@@ -99,3 +101,4 @@ private:
 };
 
 #endif // MCVIDEOMODEL_H
+
