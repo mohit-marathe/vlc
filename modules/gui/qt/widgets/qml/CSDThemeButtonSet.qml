@@ -40,9 +40,11 @@ Rectangle {
     Row {
         id: layout
 
-        anchors.fill: parent
-        anchors.leftMargin: root._frameMarginLeft
-        anchors.rightMargin: root._frameMarginRight
+        anchors {
+            fill: parent
+            leftMargin: root._frameMarginLeft
+            rightMargin: root._frameMarginRight
+        }
 
         spacing: root._interNavButtonSpacing
 

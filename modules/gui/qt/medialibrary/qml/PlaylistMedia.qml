@@ -237,8 +237,10 @@ MainInterface.MainTableView {
     Rectangle {
         id: line
 
-        anchors.left : parent.left
-        anchors.right: parent.right
+        anchors {
+            left : parent.left
+            right : parent.right
+        }
 
         height: VLCStyle.dp(1)
 

@@ -177,8 +177,10 @@ GridView {
                                                                        : "transparent"
 
             ColumnLayout {
-                anchors.fill: parent
-                anchors.margins: 10
+                anchors {
+                    fill: parent
+                    margins: 10
+                }   
 
                 EditorDummyButton {
                     Layout.preferredWidth: VLCStyle.icon_medium

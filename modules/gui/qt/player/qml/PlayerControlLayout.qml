@@ -135,9 +135,11 @@ FocusScope {
     Loader {
         id: loaderLeft
 
-        anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
+        anchors {
+            left: parent.left
+            top: parent.top
+            bottom: parent.bottom
+        } 
 
         active: !!playerControlLayout.model && !!playerControlLayout.model.left
 
@@ -171,10 +173,12 @@ FocusScope {
     Loader {
         id: loaderCenter
 
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
+        anchors {
+            top: parent.top
+            bottom: parent.bottom
 
-        anchors.horizontalCenter: parent.horizontalCenter
+            horizontalCenter: parent.horizontalCenter
+        }
 
         active: !!playerControlLayout.model && !!playerControlLayout.model.center
 
@@ -205,9 +209,11 @@ FocusScope {
     Loader {
         id: loaderRight
 
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
+        anchors {
+            right: parent.right
+            top: parent.top
+            bottom: parent.bottom
+        }
 
         active: !!playerControlLayout.model && !!playerControlLayout.model.right
 

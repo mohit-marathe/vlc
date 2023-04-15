@@ -86,8 +86,10 @@ Widgets.GridItem {
     Image {
         id: image
 
-        anchors.right: parent.right
-        anchors.top: parent.top
+        anchors {
+            right: parent.right
+            top: parent.top
+        }
 
         width: VLCStyle.gridItem_newIndicator
         height: width

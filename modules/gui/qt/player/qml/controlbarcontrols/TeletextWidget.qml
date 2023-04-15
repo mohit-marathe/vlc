@@ -78,8 +78,10 @@ T.Pane {
             Widgets.CheckButton {
                 id: teleActivateBtn
 
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
+                anchors {
+                    right: parent.right
+                    verticalCenter: parent.verticalCenter
+                }
 
                 focus: true
 
@@ -94,8 +96,10 @@ T.Pane {
         }
 
         RowLayout {
-            anchors.left: parent.left
-            anchors.right: parent.right
+            anchors {
+                left: parent.left
+                right: parent.right
+            }
 
             spacing: VLCStyle.margin_small
 

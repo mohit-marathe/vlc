@@ -83,8 +83,10 @@ FocusScope {
         RowLayout {
             id: contentLayout
 
-            anchors.fill: parent
-            anchors.margins: VLCStyle.margin_normal
+            anchors {
+                fill: parent
+                margins: VLCStyle.margin_normal
+            }
             implicitHeight: artAndControl.implicitHeight
             spacing: VLCStyle.margin_normal
 

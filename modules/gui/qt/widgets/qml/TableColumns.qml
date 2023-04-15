@@ -151,8 +151,10 @@ Item {
             Widgets.ScrollingText {
                 id: textRect
 
-                anchors.left: parent.left
-                anchors.right: parent.right
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                } 
 
                 height: (root.showCriterias) ? Math.round(parent.height / 2)
                                              : parent.height
@@ -182,8 +184,10 @@ Item {
             }
 
             Widgets.MenuCaption {
-                anchors.left: parent.left
-                anchors.right: parent.right
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                } 
 
                 height: textRect.height
 

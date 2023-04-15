@@ -190,9 +190,11 @@ FocusScope{
     Menus.Menubar {
         id: menubar
 
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.leftMargin: root._sideMargin
+        anchors {
+            top: parent.top
+            left: parent.left
+            leftMargin: root._sideMargin
+        } 
 
         width: implicitWidth
 
@@ -207,9 +209,11 @@ FocusScope{
     Item {
         id: logoOrResume
 
-        anchors.left: root.left
-        anchors.top: root.top
-        anchors.leftMargin:  root._sideMargin
+        anchors {
+            left: root.left
+            top: root.top
+            leftMargin:  root._sideMargin
+        }
 
         implicitWidth: resumeVisible ? resumeDialog.implicitWidth
                                      : logoGroup.implicitWidth
@@ -231,8 +235,11 @@ FocusScope{
             Widgets.IconControlButton {
                 id: backBtn
 
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: parent.left
+                anchors {
+                    verticalCenter: parent.verticalCenter
+                    left: parent.left
+                }
+                
 
                 objectName: "IconToolButton"
                 size: VLCStyle.icon_banner
@@ -250,9 +257,11 @@ FocusScope{
             Widgets.BannerCone {
                 id: logo
 
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: backBtn.right
-                anchors.leftMargin: VLCStyle.margin_xxsmall
+                anchors {
+                    verticalCenter: parent.verticalCenter
+                    left: backBtn.right
+                    leftMargin: VLCStyle.margin_xxsmall
+                }
 
                 color: theme.accent
 
@@ -270,9 +279,11 @@ FocusScope{
         ResumeDialog {
             id: resumeDialog
 
-            anchors.fill: parent
-            //add aditional margin so it align with menubar text when visible (see MenuBar.qml)
-            anchors.leftMargin: VLCStyle.margin_xsmall
+            anchors {
+                fill: parent
+                //add aditional margin so it align with menubar text when visible (see MenuBar.qml)
+                leftMargin: VLCStyle.margin_xsmall 
+            }
 
             maxWidth: ((root.showCSD && !root.pinControls) ? csdDecorations : playlistGroup).x
                 - VLCStyle.applicationHorizontalMargin
@@ -338,9 +349,11 @@ FocusScope{
     T.Label {
         id: leftTitleText
 
-        anchors.left: parent.left
-        anchors.top: logoOrResume.bottom
-        anchors.leftMargin: root._sideMargin
+        anchors {
+            left: parent.left
+            top: logoOrResume.bottom
+            leftMargin: root._sideMargin
+        }
 
         width: root.textWidth - VLCStyle.margin_normal
 
@@ -361,8 +374,10 @@ FocusScope{
     Loader {
         id: csdDecorations
 
-        anchors.top: parent.top
-        anchors.right: parent.right
+        anchors {
+            top: parent.top
+            right: parent.right
+        }
 
         focus: false
         height: VLCStyle.icon_normal
@@ -388,9 +403,11 @@ FocusScope{
         focus: true
         spacing: VLCStyle.margin_xxsmall
 
-        anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.rightMargin: root._sideMargin + extraRightMargin
+        anchors {
+            top: parent.top
+            right: parent.right
+            rightMargin: root._sideMargin + extraRightMargin
+        }
 
         Widgets.IconControlButton {
             id: menuSelector

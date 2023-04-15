@@ -131,9 +131,11 @@ FocusScope {
         ListView {
             id: listView
 
-            anchors.fill: parent
-            anchors.topMargin: root.topPadding
-            anchors.bottomMargin: root.bottomPadding
+            anchors {
+                fill: parent
+                topMargin: root.topPadding
+                bottomMargin: root.bottomPadding
+            } 
 
             ScrollBar.vertical: ScrollBar { id: scrollBar; active: true }
 

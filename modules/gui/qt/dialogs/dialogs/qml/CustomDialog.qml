@@ -85,9 +85,11 @@ ModalDialog {
 
         Rectangle {
             color: footerTheme.bg.primary
-            anchors.fill: parent
-            anchors.leftMargin: VLCStyle.margin_xxsmall
-            anchors.rightMargin: VLCStyle.margin_xxsmall
+            anchors {
+                fill: parent
+                leftMargin: VLCStyle.margin_xxsmall
+                rightMargin: VLCStyle.margin_xxsmall
+            }
 
             RowLayout {
                 anchors.fill: parent

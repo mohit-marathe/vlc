@@ -104,11 +104,13 @@ FocusScope {
     RowLayout {
         id: layout
 
-        anchors.fill: parent
-        anchors.leftMargin: VLCStyle.margin_normal
-        anchors.topMargin: VLCStyle.margin_large
-        anchors.rightMargin: VLCStyle.margin_small
-        anchors.bottomMargin: VLCStyle.margin_xxsmall
+        anchors {
+            fill: parent
+            leftMargin: VLCStyle.margin_normal
+            topMargin: VLCStyle.margin_large
+            rightMargin: VLCStyle.margin_small
+            bottomMargin: VLCStyle.margin_xxsmall
+        }
         spacing: VLCStyle.margin_large
 
         Component {

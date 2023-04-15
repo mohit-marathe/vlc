@@ -238,8 +238,10 @@ T.ItemDelegate {
         ColumnLayout {
             id: layout
 
-            anchors.top: parent.top
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors {
+                top: parent.top
+                horizontalCenter: parent.horizontalCenter
+            }
             spacing: 0
 
             Widgets.MediaCover {
@@ -263,8 +265,10 @@ T.ItemDelegate {
                 DoubleShadow {
                     id: unselectedShadow
 
-                    anchors.fill: parent
-                    anchors.margins: VLCStyle.dp(1) // outside border (unselected)
+                    anchors {
+                        fill: parent
+                        margins: VLCStyle.dp(1) // outside border (unselected)
+                    }   
                     z: -1
 
                     opacity: 0.62
@@ -283,8 +287,10 @@ T.ItemDelegate {
                 DoubleShadow {
                     id: selectedShadow
 
-                    anchors.fill: parent
-                    anchors.margins: VLCStyle.dp(1)
+                    anchors {
+                        fill: parent
+                        margins: VLCStyle.dp(1)
+                    } 
                     z: -1
 
                     visible: opacity > 0

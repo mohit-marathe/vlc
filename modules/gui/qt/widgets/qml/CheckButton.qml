@@ -162,9 +162,10 @@ T.Switch {
     }
 
     indicator: Rectangle {
-        anchors.fill: parent
-
-        anchors.margins: VLCStyle.checkButton_margins
+        anchors {
+            fill: parent
+            margins: VLCStyle.checkButton_margins
+        }
 
         radius: height
 
@@ -191,9 +192,10 @@ T.Switch {
             drag.onActiveChanged: if (drag.active === false) root._applyX(x + width / 2)
 
             Rectangle {
-                anchors.fill: parent
-
-                anchors.margins: VLCStyle.checkButton_handle_margins
+                anchors {
+                    fill: parent
+                    margins: VLCStyle.checkButton_handle_margins
+                } 
 
                 radius: height
 

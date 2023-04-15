@@ -159,9 +159,11 @@ T.Button {
         }
 
         Rectangle {
-            anchors.left: tabRow.left
-            anchors.right: tabRow.right
-            anchors.bottom: tabRow.bottom
+            anchors {
+                left: tabRow.left
+                right: tabRow.right
+                bottom: tabRow.bottom
+            }
 
             height: 2
 

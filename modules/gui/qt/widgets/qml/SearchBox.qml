@@ -83,9 +83,11 @@ FocusScope {
         Widgets.IconToolButton {
             id: iconButton
 
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-
+            anchors {
+                top: parent.top
+                bottom: parent.bottom
+            }
+            
             size: VLCStyle.icon_banner
 
             iconText: VLCIcons.search
@@ -107,8 +109,10 @@ FocusScope {
 
             property bool _keyPressed: false
 
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
+            anchors {
+                top: parent.top
+                bottom: parent.bottom
+            }
 
             implicitWidth: VLCStyle.widthSearchInput
             width: 0
@@ -166,9 +170,11 @@ FocusScope {
             Widgets.IconToolButton {
                 id: clearButton
 
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.right: parent.right
-                anchors.rightMargin: VLCStyle.margin_xxsmall
+                anchors {
+                    verticalCenter: parent.verticalCenter
+                    right: parent.right
+                    rightMargin: VLCStyle.margin_xxsmall
+                }
 
                 size: VLCStyle.icon_banner
                 iconText: VLCIcons.close

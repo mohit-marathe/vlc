@@ -174,8 +174,10 @@ Item {
                 id: layout
 
                 spacing: VLCStyle.margin_xsmall
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
+                anchors {
+                    top: parent.top
+                    bottom: parent.bottom
+                }
 
                 Widgets.IconLabel {
                     text: VLCIcons.info
@@ -333,9 +335,11 @@ Item {
                 anchors.fill: parent
 
                 RowLayout {
-                    anchors.fill: parent
-                    anchors.leftMargin: VLCStyle.margin_xxsmall
-                    anchors.rightMargin: VLCStyle.margin_xxsmall
+                    anchors {
+                        fill: parent
+                        leftMargin: VLCStyle.margin_xxsmall
+                        rightMargin: VLCStyle.margin_xxsmall
+                    }
 
                     Widgets.TextToolButton {
                         id: loginCancel
@@ -421,9 +425,11 @@ Item {
 
             Rectangle {
                 color: questionDialog.colorContext.bg.primary
-                anchors.fill: parent
-                anchors.leftMargin: VLCStyle.margin_xxsmall
-                anchors.rightMargin: VLCStyle.margin_xxsmall
+                anchors {
+                    fill: parent
+                    leftMargin: VLCStyle.margin_xxsmall
+                    rightMargin: VLCStyle.margin_xxsmall
+                }
 
                 RowLayout {
                     anchors.fill: parent

@@ -364,8 +364,10 @@ Control {
                 Rectangle {
                     id: firstItemIndicator
 
-                    anchors.fill: parent
-                    anchors.margins: VLCStyle.margin_small
+                    anchors {
+                        fill: parent
+                        margins: VLCStyle.margin_small
+                    } 
 
                     border.width: VLCStyle.dp(2)
                     border.color: theme.accent
@@ -618,9 +620,12 @@ Control {
                 }
 
                 T.Label {
-                    anchors.topMargin: VLCStyle.margin_xlarge
+                    anchors {
+                        topMargin: VLCStyle.margin_xlarge
 
-                    anchors.horizontalCenter: parent.horizontalCenter
+                        horizontalCenter: parent.horizontalCenter
+                    }
+                    
 
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter

@@ -49,8 +49,10 @@ Widgets.KeyNavigableListView {
             id: row
 
             spacing: VLCStyle.margin_xsmall
-            anchors.fill: parent
-            anchors.margins: VLCStyle.margin_small
+            anchors {
+                fill: parent
+                margins: VLCStyle.margin_small
+            }  
 
             Image {
 

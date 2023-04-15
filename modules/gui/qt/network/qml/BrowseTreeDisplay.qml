@@ -176,10 +176,12 @@ FocusScope {
                 RowLayout {
                     id: layout
 
-                    anchors.fill: parent
-                    anchors.topMargin: VLCStyle.margin_large
-                    anchors.bottomMargin: VLCStyle.margin_normal
-                    anchors.rightMargin: VLCStyle.margin_small
+                    anchors {
+                        fill: parent
+                        topMargin: VLCStyle.margin_large
+                        bottomMargin: VLCStyle.margin_normal
+                        rightMargin: VLCStyle.margin_small
+                    }
 
                     Widgets.SubtitleLabel {
                         text: providerModel.name
@@ -337,10 +339,12 @@ FocusScope {
                 RowLayout {
                     id: layout
 
-                    anchors.fill: parent
-                    anchors.topMargin: VLCStyle.margin_large
-                    anchors.bottomMargin: VLCStyle.margin_small
-                    anchors.rightMargin: VLCStyle.margin_small
+                    anchors {
+                        fill: parent
+                        topMargin: VLCStyle.margin_large
+                        bottomMargin: VLCStyle.margin_small
+                        rightMargin: VLCStyle.margin_small
+                    }
 
                     Widgets.SubtitleLabel {
                         text: providerModel.name

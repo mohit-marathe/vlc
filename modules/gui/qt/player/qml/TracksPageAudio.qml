@@ -42,8 +42,10 @@ TracksPage {
     // Children
 
     ColumnLayout {
-        anchors.left: parent.left
-        anchors.right: parent.right
+        anchors {
+            left: parent.left
+            right: parent.right
+        }
 
         spacing: VLCStyle.margin_xxsmall
 

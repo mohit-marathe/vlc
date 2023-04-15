@@ -129,10 +129,11 @@ ListView {
         property alias dropVisible: footerDropArea.containsDrag
 
         Rectangle {
-            anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-
+            anchors {
+                left: parent.left
+                top: parent.top
+                bottom: parent.bottom
+            }
             z: 2
 
             implicitWidth: VLCStyle.dp(2, VLCStyle.scale)

@@ -221,9 +221,11 @@ ColumnLayout {
         }
 
         Widgets.CaptionLabel {
-            anchors.right: parent.right
+            anchors {
+                right: parent.right
 
-            anchors.verticalCenter: parent.verticalCenter
+                verticalCenter: parent.verticalCenter
+            }
 
             text: I18n.qtr("4.00")
 

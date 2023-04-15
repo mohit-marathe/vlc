@@ -116,10 +116,12 @@ FocusScope {
     ScrollView {
         id: flickable
 
-        anchors.fill: parent
+        anchors {
+            fill: parent
 
-        anchors.leftMargin: root.leftPadding
-        anchors.rightMargin: root.rightPadding
+            leftMargin: root.leftPadding
+            rightMargin: root.rightPadding
+        }
 
         focus: true
 

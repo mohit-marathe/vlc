@@ -304,10 +304,12 @@ FadingEdgeListView {
     RoundButton {
         id: buttonLeft
 
-        anchors.left: parent.left
-        anchors.top: parent.top
+        anchors {
+            left: parent.left
+            top: parent.top
 
-        anchors.topMargin: buttonMargin
+            topMargin: buttonMargin
+        }
 
         text: '<'
 
@@ -321,8 +323,10 @@ FadingEdgeListView {
     RoundButton {
         id: buttonRight
 
-        anchors.right: parent.right
-        anchors.top: buttonLeft.top
+        anchors {
+            right: parent.right
+            top: buttonLeft.top
+        }
 
         text: '>'
 

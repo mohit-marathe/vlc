@@ -200,9 +200,11 @@ FocusScope {
         ctx: MainCtx
         visible: rootPlayer.hasEmbededVideo
         enabled: rootPlayer.hasEmbededVideo
-        anchors.fill: parent
-        anchors.topMargin: rootPlayer._controlsUnderVideo ? topcontrolView.height : 0
-        anchors.bottomMargin: rootPlayer._controlsUnderVideo ? controlBarView.height : 0
+        anchors {
+            fill: parent
+            topMargin: rootPlayer._controlsUnderVideo ? topcontrolView.height : 0
+            bottomMargin: rootPlayer._controlsUnderVideo ? controlBarView.height : 0
+        }
 
         onMouseMoved: {
             //short interval for mouse events
@@ -306,9 +308,11 @@ FocusScope {
 
     /* bottom control bar background */
     Widgets.LoaderFade {
-        anchors.bottom: controlBarView.bottom
-        anchors.left: controlBarView.left
-        anchors.right: controlBarView.right
+        anchors {
+            bottom: controlBarView.bottom
+            left: controlBarView.left
+            right: controlBarView.right
+        }
 
         height: item.height
 
@@ -453,9 +457,11 @@ FocusScope {
 
                     readonly property int maximumSize: Math.min(maximumWidth, maximumHeight)
 
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors {
+                        top: parent.top
+                        bottom: parent.bottom
+                        horizontalCenter: parent.horizontalCenter
+                    } 
                     source: rootPlayer.coverSource
                     fillMode: Image.PreserveAspectFit
                     mipmap: true
@@ -698,10 +704,12 @@ FocusScope {
                 id: controllerId
 
                 focus: true
-                anchors.fill: parent
-                anchors.leftMargin: VLCStyle.applicationHorizontalMargin
-                anchors.rightMargin: VLCStyle.applicationHorizontalMargin
-                anchors.bottomMargin: VLCStyle.applicationVerticalMargin
+                anchors {
+                    fill: parent
+                    leftMargin: VLCStyle.applicationHorizontalMargin
+                    rightMargin: VLCStyle.applicationHorizontalMargin
+                    bottomMargin: VLCStyle.applicationVerticalMargin
+                }
 
                 textPosition: (MainCtx.pinVideoControls)
                               ? ControlBar.TimeTextPosition.LeftRightSlider

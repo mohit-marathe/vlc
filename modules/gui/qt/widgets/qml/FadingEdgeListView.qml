@@ -150,11 +150,13 @@ ListView {
         readonly property bool effectCompatible: (((GraphicsInfo.shaderType === GraphicsInfo.GLSL)) &&
                                                  ((GraphicsInfo.shaderSourceType & GraphicsInfo.ShaderSourceString)))
 
-        anchors.top: parent.top
-        anchors.left: parent.left
+        anchors {
+            top: parent.top
+            left: parent.left
 
-        anchors.leftMargin: (orientation === ListView.Horizontal ? -displayMarginBeginning : 0)
-        anchors.topMargin: (orientation === ListView.Vertical ? -displayMarginBeginning : 0)
+            leftMargin: (orientation === ListView.Horizontal ? -displayMarginBeginning : 0)
+            topMargin: (orientation === ListView.Vertical ? -displayMarginBeginning : 0)
+        }   
 
         implicitWidth: Math.ceil(parent.width + (orientation === ListView.Horizontal ? (displayMarginBeginning + displayMarginEnd) : 0))
         implicitHeight: Math.ceil(parent.height + (orientation === ListView.Vertical ? (displayMarginBeginning + displayMarginEnd) : 0))

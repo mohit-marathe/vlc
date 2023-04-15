@@ -91,9 +91,11 @@ FocusScope {
             T.Label {
                 id: label
 
-                anchors.top: coverContainer.bottom
+                anchors {
+                    top: coverContainer.bottom
 
-                anchors.topMargin: VLCStyle.margin_large
+                    topMargin: VLCStyle.margin_large
+                }
 
                 width: parent.width
 

@@ -39,9 +39,11 @@ Item {
 
     Rectangle {
 
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        } 
 
         height: Math.max(progressBar.radius * 2, //to have at least the proper radius applied
                          parent.height + radius) //the top radius section should be always clipped
@@ -54,17 +56,21 @@ Item {
         Item {
             clip: true
 
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
+            anchors {
+                top: parent.top
+                bottom: parent.bottom
+                left: parent.left
+            }
             width: progressBar.value * parent.width
 
             Rectangle {
                 width: progressBar.width
 
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
+                anchors {
+                    top: parent.top
+                    bottom: parent.bottom
+                    left: parent.left
+                }
 
                 color: theme.fg.primary
                 radius: progressBar.radius

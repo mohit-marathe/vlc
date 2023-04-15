@@ -94,9 +94,11 @@ T.TabButton {
         RowLayout {
             id: tabRow
 
-            anchors.centerIn: parent
-            anchors.leftMargin: VLCStyle.margin_xxsmall
-            anchors.rightMargin: VLCStyle.margin_xxsmall
+            anchors {
+                centerIn: parent
+                leftMargin: VLCStyle.margin_xxsmall
+                rightMargin: VLCStyle.margin_xxsmall
+            }
 
             spacing: VLCStyle.margin_xsmall
 

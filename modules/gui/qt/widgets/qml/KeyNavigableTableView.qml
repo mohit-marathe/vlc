@@ -304,8 +304,10 @@ FocusScope {
             Column {
                 id: col
 
-                anchors.left: parent.left
-                anchors.right: parent.right
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                }
 
                 Loader {
                     id: headerLoader
@@ -316,11 +318,13 @@ FocusScope {
                 Row {
                     id: row
 
-                    anchors.left: parent.left
-                    anchors.right: parent.right
+                    anchors {
+                        left: parent.left
+                        right: parent.right
 
-                    anchors.leftMargin: root.contentLeftMargin
-                    anchors.rightMargin: root.contentRightMargin
+                        leftMargin: root.contentLeftMargin
+                        rightMargin: root.contentRightMargin
+                    }          
 
                     topPadding: root.headerTopPadding
                     bottomPadding: VLCStyle.margin_xsmall
@@ -338,8 +342,10 @@ FocusScope {
                             Accessible.name: modelData.model.text
 
                             Loader {
-                                anchors.top: parent.top
-                                anchors.bottom: parent.bottom
+                                anchors {
+                                    top: parent.top
+                                    bottom: parent.bottom
+                                }  
 
                                 property var model: modelData.model
                                 readonly property ColorContext colorContext: view.colorContext

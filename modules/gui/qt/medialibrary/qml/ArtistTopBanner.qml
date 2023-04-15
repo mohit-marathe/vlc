@@ -96,11 +96,13 @@ FocusScope {
     RowLayout {
         id: col
 
-        anchors.fill: parent
-        anchors.topMargin: VLCStyle.margin_xxlarge
-        anchors.bottomMargin: VLCStyle.margin_xxlarge
-        anchors.leftMargin: VLCStyle.margin_xlarge
-        anchors.rightMargin: root.rightPadding
+        anchors {
+            fill: parent
+            topMargin: VLCStyle.margin_xxlarge
+            bottomMargin: VLCStyle.margin_xxlarge
+            leftMargin: VLCStyle.margin_xlarge
+            rightMargin: root.rightPadding
+        }
 
         spacing: VLCStyle.margin_normal
 

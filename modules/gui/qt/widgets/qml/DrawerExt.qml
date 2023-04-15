@@ -45,10 +45,12 @@ FocusScope {
     Loader {
         id: content
 
-        anchors.left: !_expandHorizontally ? parent.left : undefined
-        anchors.right: !_expandHorizontally ? parent.right : undefined
-        anchors.top: _expandHorizontally ? parent.top : undefined
-        anchors.bottom: _expandHorizontally ? parent.bottom : undefined
+        anchors {
+            left: !_expandHorizontally ? parent.left : undefined
+            right: !_expandHorizontally ? parent.right : undefined
+            top: _expandHorizontally ? parent.top : undefined
+            bottom: _expandHorizontally ? parent.bottom : undefined
+        }  
 
         focus: true
     }

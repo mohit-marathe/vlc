@@ -41,10 +41,12 @@ ToolTipExt {
             id: arrowArea
 
             z: 1
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: parent.bottom
-            anchors.topMargin: -(parent.border.width)
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.bottom
+                topMargin: -(parent.border.width)
+            }   
 
             implicitHeight: arrow.implicitHeight * Math.sqrt(2) / 2
 
@@ -53,9 +55,11 @@ ToolTipExt {
             Rectangle {
                 id: arrow
 
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.horizontalCenterOffset: _x - pointingTooltip.x
-                anchors.verticalCenter: parent.top
+                anchors {
+                    horizontalCenter: parent.horizontalCenter
+                    horizontalCenterOffset: _x - pointingTooltip.x
+                    verticalCenter: parent.top
+                } 
 
                 implicitWidth: VLCStyle.dp(10, VLCStyle.scale)
                 implicitHeight: VLCStyle.dp(10, VLCStyle.scale)

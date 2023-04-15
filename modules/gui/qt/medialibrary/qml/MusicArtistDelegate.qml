@@ -124,12 +124,14 @@ T.ItemDelegate {
         }
 
         RowLayout {
-            anchors.fill: parent
+            anchors {
+                fill: parent
 
-            anchors.leftMargin: VLCStyle.margin_normal
-            anchors.rightMargin: VLCStyle.margin_normal
-            anchors.topMargin: VLCStyle.margin_xsmall
-            anchors.bottomMargin: VLCStyle.margin_xsmall
+                leftMargin: VLCStyle.margin_normal
+                rightMargin: VLCStyle.margin_normal
+                topMargin: VLCStyle.margin_xsmall
+                bottomMargin: VLCStyle.margin_xsmall
+            }
 
             spacing: VLCStyle.margin_xsmall
 

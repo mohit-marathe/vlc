@@ -104,9 +104,11 @@ FocusScope {
     Label {
         id: label
 
-        anchors.topMargin: VLCStyle.margin_small
-        anchors.top: parent.top
-        anchors.left: parent.left
+        anchors {
+            topMargin: VLCStyle.margin_small
+            top: parent.top
+            left: parent.left
+        }
 
         color: theme.fg.primary
         font.pixelSize: VLCStyle.fontSize_normal
@@ -119,9 +121,11 @@ FocusScope {
     Widgets.ButtonExt {
         id: continueBtn
 
-        anchors.verticalCenter: label.verticalCenter
-        anchors.left: label.right
-        anchors.leftMargin: VLCStyle.margin_xsmall
+        anchors {
+            verticalCenter: label.verticalCenter
+            left: label.right
+            leftMargin: VLCStyle.margin_xsmall
+        }
 
         text: I18n.qtr("Continue")
         font.bold: true
@@ -141,8 +145,10 @@ FocusScope {
     Widgets.ButtonExt {
         id: closeBtn
 
-        anchors.verticalCenter: label.verticalCenter
-        anchors.left: continueBtn.right
+        anchors {
+            verticalCenter: label.verticalCenter
+            left: continueBtn.right
+        }
 
         text: I18n.qtr("Dismiss")
         font.bold: true
@@ -174,16 +180,20 @@ FocusScope {
             AnchorChanges {
                 target: continueBtn
 
-                anchors.top: label.bottom
-                anchors.verticalCenter: undefined
-                anchors.left: parent.left
+                anchors {
+                    top: label.bottom
+                    verticalCenter: undefined
+                    left: parent.left
+                }
             }
 
             AnchorChanges {
                 target: closeBtn
 
-                anchors.top: label.bottom
-                anchors.verticalCenter: undefined
+                anchors {
+                    top: label.bottom
+                    verticalCenter: undefined
+                }
             }
         }
     ]

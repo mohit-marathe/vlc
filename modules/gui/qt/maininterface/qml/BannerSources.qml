@@ -135,9 +135,11 @@ FocusScope {
                 }
 
                 Column {
-                    anchors.fill: parent
-                    anchors.leftMargin: VLCStyle.applicationHorizontalMargin
-                    anchors.rightMargin: VLCStyle.applicationHorizontalMargin
+                    anchors {
+                        fill: parent
+                        leftMargin: VLCStyle.applicationHorizontalMargin
+                        rightMargin: VLCStyle.applicationHorizontalMargin
+                    }
 
                     Menus.Menubar {
                         id: menubar
@@ -154,9 +156,11 @@ FocusScope {
 
                         RowLayout {
                             id: globalToolbarLeft
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.left: parent.left
-                            anchors.leftMargin: VLCStyle.margin_xsmall
+                            anchors {
+                                verticalCenter: parent.verticalCenter
+                                left: parent.left
+                                leftMargin: VLCStyle.margin_xsmall
+                            }
                             spacing: VLCStyle.margin_xxxsmall
 
                             Widgets.IconToolButton {
@@ -250,9 +254,11 @@ FocusScope {
 
                     color: theme.bg.secondary
                     Rectangle {
-                        anchors.left : parent.left
-                        anchors.right: parent.right
-                        anchors.top  : parent.bottom
+                        anchors {
+                            left : parent.left
+                            right : parent.right
+                            top : parent.bottom
+                        }
 
                         height: VLCStyle.border
 
@@ -360,18 +366,24 @@ FocusScope {
                         contentWidth: localMenuGroup.width
                         contentHeight: VLCStyle.localToolbar_height // don't allow vertical flickering
 
-                        anchors.right: playlistGroup.left
-                        anchors.rightMargin: VLCStyle.margin_xxsmall // only applied when right aligned
+                        anchors {
+                            right: playlistGroup.left
+                            rightMargin: VLCStyle.margin_xxsmall // only applied when right aligned
+                        }
 
                         ScrollBar.horizontal: ScrollBar { }
 
                         on_AlignHCenterChanged: {
                             if (_alignHCenter) {
-                                anchors.horizontalCenter = localToolbarContent.horizontalCenter
-                                anchors.right = undefined
+                                anchors {
+                                    horizontalCenter = localToolbarContent.horizontalCenter
+                                    right = undefined
+                                }
                             } else {
-                                anchors.horizontalCenter = undefined
-                                anchors.right = playlistGroup.left
+                                anchors {
+                                    horizontalCenter = undefined
+                                    right = playlistGroup.left
+                                }   
                             }
                         }
 

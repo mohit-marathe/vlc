@@ -64,8 +64,10 @@ Window {
 
     ColumnLayout {
         id: layout
-        anchors.fill: parent
-        anchors.margins: VLCStyle.margin_small
+        anchors {
+            fill: parent
+            margins: VLCStyle.margin_small
+        }
 
 
         readonly property ColorContext colorContext: ColorContext {

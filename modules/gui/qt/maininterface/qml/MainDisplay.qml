@@ -388,9 +388,11 @@ FocusScope {
                         Rectangle {
                             id: playlistLeftBorder
 
-                            anchors.top: parent.top
-                            anchors.bottom: parent.bottom
-                            anchors.left: parent.left
+                            anchors {
+                                top: parent.top
+                                bottom: parent.bottom
+                                left: parent.left
+                            }
 
                             width: VLCStyle.border
                             color: theme.separator
@@ -474,9 +476,11 @@ FocusScope {
         Loader {
             id: loaderProgress
 
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.bottom: miniPlayer.top
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: miniPlayer.top
+            }
 
             active: (MainCtx.mediaLibraryAvailable && MainCtx.mediaLibrary.idle === false)
 
@@ -544,9 +548,11 @@ FocusScope {
                 value: ""
             }
 
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+            }
 
             z: 3
 

@@ -59,9 +59,11 @@ T.ProgressBar {
         spacing: VLCStyle.margin_small
 
         Item {
-            anchors.left: parent.left
-            anchors.right: parent.right
-
+            anchors {
+                left: parent.left
+                right: parent.right
+            }
+            
             implicitHeight: VLCStyle.heightBar_xxsmall
             implicitWidth: 200
 
@@ -71,10 +73,12 @@ T.ProgressBar {
             }
 
             Rectangle {
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    verticalCenter: parent.verticalCenter
+                }
+               
                 implicitHeight: VLCStyle.heightBar_xxxsmall
 
                 color: progressBarTheme.bg.primary
@@ -137,9 +141,11 @@ T.ProgressBar {
         }
 
         SubtitleLabel {
-            anchors.left: parent.left
-            anchors.right: parent.right
-
+            anchors {
+                left: parent.left
+                right: parent.right
+            }
+            
             text: (MediaLib.discoveryPending) ? I18n.qtr("Scanning %1")
                                                 .arg(MediaLib.discoveryEntryPoint)
                                               : I18n.qtr("Indexing Medias (%1%)")

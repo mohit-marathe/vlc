@@ -131,19 +131,23 @@ Row {
     }
 
     Column {
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
+        anchors {
+            top: parent.top
+            bottom: parent.bottom
 
-        anchors.topMargin: VLCStyle.margin_xxsmall
-        anchors.bottomMargin: VLCStyle.margin_xxsmall
+            topMargin: VLCStyle.margin_xxsmall
+            bottomMargin: VLCStyle.margin_xxsmall
+        }
 
         width: Math.max(0, parent.width - x)
 
         Widgets.ScrollingText {
             id: itemText
 
-            anchors.left: parent.left
-            anchors.right: parent.right
+            anchors {
+                left: parent.left
+                right: parent.right
+            }
 
             height: (itemCriterias.visible) ? Math.round(parent.height / 2)
                                             : parent.height
@@ -172,8 +176,10 @@ Row {
         Widgets.MenuCaption {
             id: itemCriterias
 
-            anchors.left: parent.left
-            anchors.right: parent.right
+            anchors {
+                left: parent.left
+                right: parent.right
+            } 
 
             height: itemText.height
 

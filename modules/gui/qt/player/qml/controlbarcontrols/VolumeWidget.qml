@@ -222,9 +222,11 @@ T.Pane {
                 //       tickmark. We apply a higher clamp value to achieve that behavior on
                 //       the Slider.
                 MouseArea {
-                    anchors.fill: parent
+                    anchors {
+                        fill: parent
 
-                    anchors.margins: -(VLCStyle.dp(4, VLCStyle.scale))
+                        margins: -(VLCStyle.dp(4, VLCStyle.scale))
+                    }
 
                     onPressed: {
                         mouse.accepted = false

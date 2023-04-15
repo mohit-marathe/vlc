@@ -61,10 +61,12 @@ FocusScope {
     RowLayout {
         id: row
 
-        anchors.fill: parent
+        anchors {
+            fill: parent
 
-        anchors.leftMargin: root.view.contentMargin
-        anchors.rightMargin: anchors.leftMargin
+            leftMargin: root.view.contentMargin
+            rightMargin: anchors.leftMargin
+        }
 
         Widgets.SubtitleLabel {
             id: label

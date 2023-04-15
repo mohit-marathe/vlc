@@ -205,8 +205,10 @@ Slider {
         Repeater {
             id: seekpointsRptr
 
-            anchors.left: parent.left
-            anchors.right: parent.right
+            anchors {
+                left: parent.left
+                right: parent.right
+            }
             height: control.barHeight
             visible: Player.hasChapters
 
@@ -238,9 +240,11 @@ Slider {
 
                     Rectangle {
                         id: progressRepRect
-                        anchors.left: parent.left
-                        anchors.top: parent.top
-                        anchors.bottom: parent.bottom
+                        anchors {
+                            left: parent.left
+                            top: parent.top
+                            bottom: parent.bottom
+                        } 
                         radius: parent.radius
 
                         width: sliderRect.width * control.visualPosition - parent.x - control._seekPointsDistance

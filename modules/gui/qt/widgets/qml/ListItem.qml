@@ -112,12 +112,16 @@ FocusScope {
 
             Item {
                 id: innerRect
-                anchors.fill: parent
-                anchors.leftMargin: VLCStyle.margin_small
+                anchors {
+                    fill: parent
+                    leftMargin: VLCStyle.margin_small
+                } 
 
                 RowLayout {
-                    anchors.fill: parent
-                    anchors.rightMargin: VLCStyle.margin_xxsmall
+                    anchors {
+                        fill: parent
+                        rightMargin: VLCStyle.margin_xxsmall
+                    } 
                     spacing: VLCStyle.margin_xsmall
                     Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
 

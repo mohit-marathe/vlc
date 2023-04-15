@@ -153,8 +153,10 @@ Control {
 
             parent: Drag.active ? root : control.contentItem
 
-            anchors.horizontalCenter: Drag.active ? undefined : parent.horizontalCenter
-            anchors.verticalCenter:  Drag.active ? undefined : parent.verticalCenter
+            anchors {
+                horizontalCenter: Drag.active ? undefined : parent.horizontalCenter
+                verticalCenter:  Drag.active ? undefined : parent.verticalCenter
+            }
 
             source: PlayerControlbarControls.control(model.id).source
 

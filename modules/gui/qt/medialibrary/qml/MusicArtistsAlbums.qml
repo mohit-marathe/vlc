@@ -211,9 +211,11 @@ FocusScope {
             Rectangle {
                 // id: musicArtistLeftBorder
 
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.right: parent.right
+                anchors {
+                    top: parent.top
+                    bottom: parent.bottom
+                    right: parent.right
+                }
 
                 width: VLCStyle.border
                 color: artistList.colorContext.separator

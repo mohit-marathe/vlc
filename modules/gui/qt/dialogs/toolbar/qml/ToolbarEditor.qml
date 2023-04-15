@@ -220,9 +220,11 @@ Item {
 
                                 EditorDNDView {
                                     id: dndView
-                                    anchors.fill: parent
-                                    anchors.leftMargin: spacing
-                                    anchors.rightMargin: spacing
+                                    anchors {
+                                        fill: parent
+                                        leftMargin: spacing
+                                        rightMargin: spacing
+                                    }
 
                                     model: repeater.getModel(index)
 
