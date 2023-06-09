@@ -23,6 +23,7 @@ import QtGraphicalEffects 1.12
 import org.videolan.vlc 0.1
 
 import "qrc:///widgets/" as Widgets
+import "qrc:///util/Helpers.js" as Helpers
 import "qrc:///style/"
 
 T.Pane {
@@ -270,33 +271,12 @@ T.Pane {
                 onPositionChanged: if (mouse.buttons & Qt.RightButton) adjustVolume(mouse)
 
                 onWheel: {
-                    let delta = 0, fineControl = false
-
-                    if ((Math.abs(wheel.pixelDelta.x) % 120 > 0) || (Math.abs(wheel.pixelDelta.y) % 120 > 0)) {
-                        if (Math.abs(wheel.pixelDelta.x) > Math.abs(wheel.pixelDelta.y))
-                            delta = wheel.pixelDelta.x
-                        else
-                            delta = wheel.pixelDelta.y
-                        fineControl = true
-                    }
-                    else if (wheel.angleDelta.x)
-                        delta = wheel.angleDelta.x
-                    else if (wheel.angleDelta.y)
-                        delta = wheel.angleDelta.y
-
-                    if (delta === 0)
-                        return
-
-                    if (wheel.inverted)
-                        delta = -delta
-
+                    let scroll = Helpers.wheelEvent(wheel)
+                    let delta = scroll.delta, fineControl = scroll.fineControl
                     if (fineControl)
                         volControl.value += 0.001 * delta
                     else {
-                        // Degrees to steps for standard mouse
-                        delta = delta / 8 / 15
-
-                        const steps = Math.ceil(Math.abs(delta))
+                        var steps = Math.ceil(Math.abs(delta))
 
                         Player.muted = false
 

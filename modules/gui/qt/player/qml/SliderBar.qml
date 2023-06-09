@@ -233,6 +233,22 @@ Slider {
 
             onPositionChanged: fsm.moveControl(mouse.x / width, mouse.modifiers === Qt.ShiftModifier)
 
+            onWheel: {
+                let scroll = Helpers.wheelEvent(wheel)
+                let delta = scroll.delta, fineControl = scroll.fineControl
+
+                if (!fineControl) {
+                    var steps = Math.ceil(Math.abs(delta))
+
+                    if (delta > 0)
+                        Player.jumpFwd(steps)
+                    else
+                        Player.jumpBwd(steps)
+                }
+
+                wheel.accepted = true
+            }
+
             onEntered: {
                 if(Player.hasChapters)
                     control._isSeekPointsShown = true

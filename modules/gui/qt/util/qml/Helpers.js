@@ -93,3 +93,28 @@ function itemsMovable(sortedItemIndexes, targetIndex) {
             (targetIndex > (sortedItemIndexes[sortedItemIndexes.length - 1] + 1) ||
              targetIndex < sortedItemIndexes[0])
 }
+function wheelEvent(wheel) {
+    var delta = 0, fineControl = false
+    if ((Math.abs(wheel.pixelDelta.x) % 120 > 0) || (Math.abs(wheel.pixelDelta.y) % 120 > 0)) {
+        if (Math.abs(wheel.pixelDelta.x) > Math.abs(wheel.pixelDelta.y))
+            delta = wheel.pixelDelta.x
+        else
+            delta = wheel.pixelDelta.y
+        fineControl = true
+    }
+    else if (wheel.angleDelta.x)
+        delta = wheel.angleDelta.x
+    else if (wheel.angleDelta.y)
+        delta = wheel.angleDelta.y
+
+    if (delta === 0)
+        return
+
+    if (wheel.inverted)
+        delta = -delta
+
+    if (!fineControl)
+        delta = delta / 8 / 15
+
+    return {delta, fineControl}
+}
