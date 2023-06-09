@@ -209,8 +209,8 @@ public slots:
     void littleslower();
     void normalRate();
 
-    void jumpFwd();
-    void jumpBwd();
+    void jumpFwd( int steps = 1 );
+    void jumpBwd( int steps = 1 );
     void jumpToTime( VLCTick i_time );
     void jumpToPos( float );
     void frameNext();

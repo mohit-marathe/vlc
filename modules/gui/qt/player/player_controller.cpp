@@ -1241,7 +1241,7 @@ void PlayerController::setPosition(float position)
     vlc_player_SetPosition( d->m_player, position );
 }
 
-void PlayerController::jumpFwd()
+void PlayerController::jumpFwd(int steps)
 {
     Q_D(PlayerController);
     msg_Dbg( d->p_intf, "jumpFwd");
@@ -1249,10 +1249,10 @@ void PlayerController::jumpFwd()
     vlc_player_locker lock{ d->m_player };
     if( !isCurrentItemSynced() )
         return;
-    vlc_player_JumpTime( d->m_player, vlc_tick_from_sec( i_interval ) );
+    vlc_player_JumpTime( d->m_player, vlc_tick_from_sec( i_interval * steps ) );
 }
 
-void PlayerController::jumpBwd()
+void PlayerController::jumpBwd(int steps)
 {
     Q_D(PlayerController);
     msg_Dbg( d->p_intf, "jumpBwd");
@@ -1260,7 +1260,7 @@ void PlayerController::jumpBwd()
     vlc_player_locker lock{ d->m_player };
     if( !isCurrentItemSynced() )
         return;
-    vlc_player_JumpTime( d->m_player, vlc_tick_from_sec( -i_interval ) );
+    vlc_player_JumpTime( d->m_player, vlc_tick_from_sec( -i_interval * steps ) );
 }
 
 void PlayerController::jumpToTime(VLCTick i_time)
