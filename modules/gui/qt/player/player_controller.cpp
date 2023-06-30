@@ -1648,8 +1648,9 @@ void PlayerController::updateTime(vlc_tick_t system_now, bool forceUpdate)
 
     // Update time properties
     emit timeChanged(d->m_time);
+    const float playback_speed = getRate();
     if (d->m_time != VLC_TICK_INVALID && d->m_length != VLC_TICK_INVALID)
-        d->m_remainingTime = d->m_length - d->m_time;
+        d->m_remainingTime = (d->m_length - d->m_time)/playback_speed;
     else
         d->m_remainingTime = VLC_TICK_INVALID;
     emit remainingTimeChanged(d->m_remainingTime);
