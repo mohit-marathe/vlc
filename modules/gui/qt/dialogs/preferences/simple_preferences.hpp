@@ -135,6 +135,8 @@ private:
     QHash<QString, AudioControlGroup> audioControlGroups;
     QStringList qs_filter;
     QButtonGroup *radioGroup;
+    QButtonGroup *layoutGroup;
+    QButtonGroup *layoutImages;
 
     char *lang;
     MLFoldersEditor *mlFoldersEditor {};
@@ -163,6 +165,9 @@ private slots:
     void updateAudioOptions( int );
     void updateAudioVolume( int );
     void langChanged( int );
+    void imageLayoutClick( QAbstractButton* );
+    void handleLayoutChange( int );
+    void updateLayoutSelection();
 #ifdef _WIN32
     void assoDialog();
     void updateCheckBoxes( QTreeWidgetItem*, int );
