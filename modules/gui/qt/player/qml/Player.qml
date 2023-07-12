@@ -184,6 +184,11 @@ FocusScope {
             //short interval for mouse events
             toolbarAutoHide.setVisible(1000)
         }
+
+        onMousePressed: {
+            if (!Player.isInteractive)
+                mainPlaylistController.togglePlayPause()
+        }
     }
 
     // background image
