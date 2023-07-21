@@ -207,6 +207,10 @@ static void ShowDialog   ( intf_thread_t *, int, int, intf_dialog_args_t * );
 #define QT_PAUSE_MINIMIZED_LONGTEXT N_( \
     "With this option enabled, the playback will be automatically paused when minimizing the window." )
 
+#define QT_PAUSE_ON_CLICK_TEXT N_( "Pause the video playback when mouse is clicked" )
+#define QT_PAUSE_ON_CLICK_LONGTEXT N_( "This option allows to toggle pause/play when mouse "  \
+    "is clicked on the video surface." )
+
 #define ICONCHANGE_TEXT N_( "Allow automatic icon changes")
 #define ICONCHANGE_LONGTEXT N_( \
     "This option allows the interface to change its icon on various occasions.")
@@ -309,6 +313,8 @@ vlc_module_begin ()
               MINIMIZED_LONGTEXT)
     add_bool( "qt-pause-minimized", false, QT_PAUSE_MINIMIZED_TEXT,
               QT_PAUSE_MINIMIZED_LONGTEXT )
+    add_bool( "qt-pause-on-click", false, QT_PAUSE_ON_CLICK_TEXT,
+              QT_PAUSE_ON_CLICK_LONGTEXT )
 
     add_float_with_range( "qt-opacity", 1., 0.1, 1., OPACITY_TEXT,
                           OPACITY_LONGTEXT )
