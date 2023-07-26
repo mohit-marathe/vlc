@@ -185,10 +185,14 @@ FocusScope {
         anchors.fill: parent
         anchors.topMargin: rootPlayer._controlsUnderVideo ? topcontrolView.height : 0
         anchors.bottomMargin: rootPlayer._controlsUnderVideo ? controlBarView.height : 0
+        cursorShape: toggleControlBarButtonAutoHide.running === true ? Qt.ArrowCursor : Qt.BlankCursor
 
         onMouseMoved: {
             //short interval for mouse events
-            toolbarAutoHide.setVisible(1000)
+            if (Player.isInteractive)
+                toggleControlBarButtonAutoHide.restart()
+            else
+                toolbarAutoHide.setVisible(1000)
         }
     }
 
@@ -758,6 +762,28 @@ FocusScope {
         target: MainCtx
         onAskShow: {
             toolbarAutoHide.toggleForceVisible()
+        }
+    }
+
+    Timer {
+        id: toggleControlBarButtonAutoHide
+        running: true
+        repeat: false
+        interval: 3000
+    }
+
+    Widgets.ButtonExt {
+        id: toggleControlBarButton
+        visible: Player.isInteractive && !(MainCtx.pinVideoControls && !Player.fullscreen)
+                 && (toggleControlBarButtonAutoHide.running === true || controlBarView.focus || toggleControlBarButton.hovered)
+        anchors {
+            bottom: controlBarView.state === "hidden" ? parent.bottom : controlBarView.top
+            horizontalCenter: parent.horizontalCenter
+        }
+        iconSize: VLCStyle.icon_xlarge
+        iconTxt: controlBarView.state === "hidden" ? VLCIcons.expand_inverted : VLCIcons.expand
+        onClicked: {
+            toolbarAutoHide.toggleForceVisible();
         }
     }
 }
