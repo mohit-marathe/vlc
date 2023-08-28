@@ -900,7 +900,7 @@ libqt_plugin_la_QML = \
 	gui/qt/network/qml/ServicesManage.qml \
 	gui/qt/network/qml/ServicesSources.qml \
 	gui/qt/player/qml/qmldir \
-        gui/qt/player/qml/Bookmarks.qml \
+	gui/qt/player/qml/Bookmarks.qml \
 	gui/qt/player/qml/ControlBar.qml \
 	gui/qt/player/qml/ControlbarControls.qml \
 	gui/qt/player/qml/PlaybackSpeed.qml \
@@ -921,6 +921,7 @@ libqt_plugin_la_QML = \
 	gui/qt/player/qml/TracksPageSubtitle.qml \
 	gui/qt/player/qml/TracksListPage.qml \
 	gui/qt/player/qml/ControlLayout.qml \
+	gui/qt/player/qml/NavigationBox.qml \
 	gui/qt/player/qml/controlbarcontrols/HighResolutionTimeWidget.qml \
 	gui/qt/player/qml/controlbarcontrols/ArtworkInfoWidget.qml \
 	gui/qt/player/qml/controlbarcontrols/AspectRatioWidget.qml \

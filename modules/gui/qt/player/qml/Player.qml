@@ -699,6 +699,26 @@ FocusScope {
         }
     }
 
+    NavigationBox {
+        id: navBox
+        visible: Player.isInteractive && showNavigationBox
+                    && toggleControlBarButtonAutoHide.running
+                    || navBox.hovered
+        x: 50
+        y: 800
+
+        Drag.onDragStarted: {
+            navBox.x = drag.x
+            navBox.y = drag.y
+        }
+    }
+
+    // NavigationBox's visibility depends on this timer
+    Connections {
+        target: MainCtx
+        onNavBoxToggled: toggleControlBarButtonAutoHide.restart()
+    }
+
     Widgets.ButtonExt {
         id: toggleControlBarButton
         visible: Player.isInteractive
