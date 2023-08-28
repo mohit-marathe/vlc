@@ -81,7 +81,8 @@ public:
 
         WIDGET_SPACER = 0x40,
         WIDGET_SPACER_EXTEND,
-        WIDGET_MAX
+        WIDGET_MAX,
+        NAVIGATION_BOX,
     };
     Q_ENUM(ControlType)
 

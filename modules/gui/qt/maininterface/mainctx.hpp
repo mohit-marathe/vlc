@@ -301,7 +301,7 @@ public:
 
     bool preferHotkeys() const;
     void setPreferHotkeys(bool enable);
-    
+
     QWindow *intfMainWindow() const;
 
     Q_INVOKABLE QVariant settingValue(const QString &key, const QVariant &defaultValue) const;
@@ -488,10 +488,12 @@ signals:
     void screenChanged();
 
     void useGlobalShortcutsChanged( bool );
-    
+
     void maxVolumeChanged();
 
     void safeAreaChanged();
+
+    void navBoxToggled();
 
     void windowSuportExtendedFrameChanged();
     void windowExtendedMarginChanged(unsigned margin);
